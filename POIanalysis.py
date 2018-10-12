@@ -2,7 +2,9 @@ from pyspark.sql.functions import *
 import os
 import numpy as np
 
-spark = sq.SparkSession.builder.master("local").appName("my app").config("spark.some.config.option", "some-value").getOrCreate()
+spark = sq.SparkSession.builder.master("local").appName("PIOanalysis") \
+.config("spark.io.compression.codec", "snappy").config("spark.rdd.compress", "true").config("spark.executor.memory", "2g") \
+.getOrCreate()
 
 #path="/home/iman/Dropbox/work-samples-master/data-mr/data"
 path="/tmp/data"
